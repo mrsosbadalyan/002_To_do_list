@@ -1,0 +1,190 @@
+:root {
+	--dark-blue: #1E3A8A;
+    --darker-blue: #1E40AF;
+    --darkest-blue: #1E3A8A;
+	--black: #000000;
+	--grey: #6B7280;
+	--light-yellow: #FACC15;
+	--purple: #7d59d2;
+	--light: #EEE;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*main body design*/
+body {
+	display: flex;		/*done for being flexible depending on display size*/
+	flex-direction: column;
+	min-height: 50vh;
+	color: #FFF;
+	background-color: var(--dark-blue);
+}
+
+header {
+	padding: 2rem 1rem;
+	max-width: 400px;
+	align-self: center;
+	width: 100%;
+	margin: 0 auto;
+}
+/*header h1 design*/
+header h1{ 
+	font-size: 2.5rem;
+	font-weight: 800;
+	color: var(--light);
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+#new-task-form {
+	display: flex;;
+}
+/* removes default design to let us start over from 0 */
+input, button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+}
+/*new task input design*/
+#new-task-input {
+	flex: 150%;
+	background-color: var(--darker-blue);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-right: 1rem;
+	color: var(--light);
+	font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+	color: var(--grey);
+}
+/*add task button design*/
+#new-task-submit {
+	color: var(--purple);
+	font-size: 1rem;
+	font-weight: 700;
+	background-image: linear-gradient(to right, var(--light-yellow), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+#new-task-submit:hover {
+	opacity: 0.8;
+}
+
+#new-task-submit:active {
+	opacity: 0.6;
+}
+/*main part css*/
+main {
+	flex: 1 1 0%;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+/*designing task list text, buttons and head*/
+.task-list {
+	padding: 1rem;
+}
+
+/*task header*/
+.task-list h2 {
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--light);
+	margin-bottom: 1rem;
+	text-align: center;
+}
+/*taskbar*/
+#tasks .task {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--black);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+}
+
+.task .content {
+	flex: 1 1 0%;
+}
+
+.task .content .text {
+	color: var(--light);
+	font-size: 1.125rem;
+	width: 100%;
+	display: block;
+	transition: 0.4s;
+}
+
+.task .content .text:not(:read-only) {
+	color: var(--light-yellow);
+}
+
+.task .actions {
+	display: flex;
+	margin: 0 -0.5rem;
+}
+
+.task .actions button {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.4s;
+}
+
+.task .actions button:hover {
+	opacity: 0.8;
+}
+
+.task .actions button:active {
+	opacity: 0.6;
+}
+/* edit button style */
+.task .actions .edit {
+	background-image: linear-gradient(to right, var(--light-yellow), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/* delete button style */
+.task .actions .delete {
+	color: rgb(241, 9, 55);
+}
+
+/* 'done'  for completed tasks */
+.task.done .content .text {
+	text-decoration: line-through;
+	color: var(--grey);
+}
+
+/* done button style */
+.task .actions .done {
+	color: var(--light-yellow);
+}
+
+/* Completed task styles */
+.task.completed .text {
+    text-decoration: line-through;
+    color: var(--grey);
+}
+
+/* Task dragging styles */
+.task.dragging {
+    opacity: 0.5;
+}
+
+.task.placeholder {
+    background-color: var(--grey);
+    border: 2px dashed var(--light);
+    height: 3rem;
+}
